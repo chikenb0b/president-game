@@ -7,9 +7,13 @@ import os
 extreme_score = 0
 card_number = random.randint(1, 95) # must be a number from 1-95 in the current state
 list_of_Card_names = f"card_{card_number}.png"
-# Pygame vars
 flags = pygame.RESIZABLE | pygame.SCALED
 
+# functions
+
+def Progress_bar(location_x, location_y, width, height, color, progress, color2, location_x_offset, location_y_offset, height_offset, width_offset):
+    pygame.draw.rect(screen, color, (location_x, location_y, width, height))
+    pygame.draw.rect(screen, color2, (location_x + location_x_offset, location_y + location_y_offset, progress, height)) # bar that makes progress
 
 # pygame setup
 running = True
@@ -30,9 +34,10 @@ while running:
     # game logic
 
     # rendering stuff
-    screen.fill("purple")
-    screen.blit(pygame.image.load(f"assets/cards/{list_of_Card_names}").convert_alpha(), (0,0))
-
+    Progress_bar(0, 0, 200, 140, "red", 10, "black", 5, 0)
+    #screen.fill("purple")
+    #screen.blit(pygame.image.load(f"assets/cards/{list_of_Card_names}").convert_alpha(), (0,0))
+    # support bars code
 
     # flip() the display to put your work on screen
     pygame.display.flip()
