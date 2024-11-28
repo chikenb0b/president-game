@@ -5,9 +5,11 @@ import os
 
 # Game varibles
 extreme_score = 0
-
+card_number = random.randint(1, 95) # must be a number from 1-95 in the current state
+list_of_Card_names = f"card_{card_number}.png"
 # Pygame vars
 flags = pygame.RESIZABLE | pygame.SCALED
+
 
 # pygame setup
 running = True
@@ -29,6 +31,8 @@ while running:
 
     # rendering stuff
     screen.fill("purple")
+    screen.blit(pygame.image.load(f"assets/cards/{list_of_Card_names}").convert_alpha(), (0,0))
+
 
     # flip() the display to put your work on screen
     pygame.display.flip()
